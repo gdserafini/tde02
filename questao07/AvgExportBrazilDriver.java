@@ -20,8 +20,8 @@ public class AvgExportBrazilDriver {
         job.setOutputKeyClass(IntWritable.class);
         job.setOutputValueClass(DoubleWritable.class);
 
-        FileInputFormat.addInputPath(job, new Path("questao07/teste_brasil.csv"));
-        FileOutputFormat.setOutputPath(job, new Path("questao07/output/"));
+        FileInputFormat.addInputPath(job, new Path("../data.csv"));
+        FileOutputFormat.setOutputPath(job, new Path("output/"));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }

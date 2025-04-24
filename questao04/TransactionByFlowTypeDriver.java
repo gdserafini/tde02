@@ -8,12 +8,13 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class TransactionByFlowTypeDriver {
     public static void main(String[] args) throws Exception {
-        if (args.length != 2) {
-            System.err.println("Uso: FlowDriver <entrada> <saida>");
-            System.exit(2);
-        }
+        //if (args.length != 2) {
+        //    System.err.println("Uso: FlowDriver <entrada> <saida>");
+        //    System.exit(2);
+        //}
 
         Configuration conf = new Configuration();
+        conf.set("mapreduce.framework.name", "local");
         Job job = Job.getInstance(conf, "Transações por tipo de fluxo");
 
         job.setJarByClass(TransactionByFlowTypeDriver.class);
@@ -24,8 +25,8 @@ public class TransactionByFlowTypeDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
-        FileInputFormat.addInputPath(job, new Path(args[0]));
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        FileInputFormat.addInputPath(job, new Path("../data.csv"));
+        FileOutputFormat.setOutputPath(job, new Path("output/"));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }

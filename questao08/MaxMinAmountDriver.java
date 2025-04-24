@@ -22,8 +22,8 @@ public class MaxMinAmountDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
 
-        FileInputFormat.addInputPath(job, new Path("questao08/teste.csv"));
-        FileOutputFormat.setOutputPath(job, new Path("questao08/output"));
+        FileInputFormat.addInputPath(job, new Path("../data.csv"));
+        FileOutputFormat.setOutputPath(job, new Path("output/"));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }

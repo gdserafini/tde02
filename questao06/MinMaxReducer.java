@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class MinMaxReducer extends Reducer<Text, DoubleWritable, Text, Text> {
     public void reduce(Text key, Iterable<DoubleWritable> values, Context context) throws IOException, InterruptedException {
-        double min = Double.MAX_VALUE;
-        double max = Double.MIN_VALUE;
+        double max = Double.MAX_VALUE;
+        double min = Double.MIN_VALUE;
 
         for (DoubleWritable val : values) {
             double price = val.get();

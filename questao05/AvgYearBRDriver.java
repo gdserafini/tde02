@@ -8,12 +8,13 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class AvgYearBRDriver {
     public static void main(String[] args) throws Exception {
-        if (args.length != 2) {
-            System.err.println("Uso: AvgYearBRDriver <entrada> <saida>");
-            System.exit(2);
-        }
+        //if (args.length != 2) {
+        //    System.err.println("Uso: AvgYearBRDriver <entrada> <saida>");
+        //    System.exit(2);
+        //}
 
         Configuration conf = new Configuration();
+        conf.set("mapreduce.framework.name", "local");
         Job job = Job.getInstance(conf, "Valor médio por ano no Brasil");
 
         job.setJarByClass(AvgYearBRDriver.class);
@@ -23,8 +24,8 @@ public class AvgYearBRDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(DoubleWritable.class);
 
-        FileInputFormat.addInputPath(job, new Path(args[0]));
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        FileInputFormat.addInputPath(job, new Path("../data.csv"));
+        FileOutputFormat.setOutputPath(job, new Path("output/"));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
