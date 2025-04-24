@@ -24,6 +24,8 @@ E rode o Hadoop localmente com:
 
 Com o arquivo data.csv na pasta root rode:
 
+> cd questaoX
+
 > javac -classpath $(hadoop classpath) -d bin *.java
 
 > jar -cvf seu-jar.jar -C bin/ .
