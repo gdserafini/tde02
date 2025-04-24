@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="year-count">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/questao02/year-count.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
